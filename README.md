@@ -1,4 +1,4 @@
-On Error Resume Next (from POC||GTFO volume 0x8):
+# On Error Resume Next (from POC||GTFO volume 0x8):
 
 Don’t you just long for the halcyon days of Visual Basic 6 (VB6)? Between
 starting arrays at 1 and only needing signed data types, Visual Basic was just
