@@ -1,0 +1,18 @@
+
+The resulting assembly instructions that check the input character and the
+password character are:
+
+  400a3a:   0f b6 55 e0      movzx  edx,BYTE PTR [rbp-0x20] ; load input
+  400a3e:   48 8b 45 f8      mov    rax,QWORD PTR [rbp-0x8] ; get password ptr
+  400a42:   0f b6 00         movzx  eax,BYTE PTR [rax]      ; get password char
+  400a45:   38 c2            cmp    dl,al
+
+Specifically, address 0x400a42 loads the first byte of the password.  The
+overflow of input in the fscanf causes the password pointer to point at
+0x4141414141414141.  When the program goes to dereference this at 0x400a42, this
+throws a segfault.  Our handle then moves to the instruction mov dh, 0x0 (b6 00),
+which does nothing important to our comparison.  Because of the register reuse
+by the compiler when we get to 0x400a45 rax still contains 0x4141414141414141,
+and thus al contains 0x41.  Since the first byte of our input is also 0x41, the
+check passes and we're given our shell.
+

